@@ -10,6 +10,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.config import settings
 from app.routers import ROUTERS
+from app.services.cachehit import cache_hit_service
 from app.store import store
 
 app = FastAPI(title="API数据聚合采集中心", version="1.0.0")
@@ -34,5 +35,7 @@ def health() -> dict[str, object]:
 
 @app.get("/api/overview")
 def overview() -> dict[str, object]:
-    """运营概览：把各业务模块的待处理量汇总成看板卡片。"""
-    return store.overview()
+    """运营概览：把各业务模块的待处理量汇总成看板卡片，并读取真实缓存命中记录。"""
+    payload = store.overview()
+    payload["cachehit"] = cache_hit_service.overview_summary()
+    return payload

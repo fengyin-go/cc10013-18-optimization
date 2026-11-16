@@ -15,6 +15,7 @@ from app.routers import retry as router_retry
 from app.routers import aggregator as router_aggregator
 from app.routers import auth as router_auth
 from app.routers import cache as router_cache
+from app.routers import cachehit as router_cachehit
 from app.routers import dump as router_dump
 from app.routers import schedule as router_schedule
 from app.routers import monitor as router_monitor
@@ -25,4 +26,4 @@ from app.routers import log as router_log
 from app.routers import delta as router_delta
 from app.routers import export as router_export
 
-ROUTERS = [router_endpoint, router_chain, router_freq, router_mapper, router_validator, router_retry, router_aggregator, router_auth, router_cache, router_dump, router_schedule, router_monitor, router_transform, router_cleanse, router_ratelimit, router_log, router_delta, router_export]
+ROUTERS = [router_endpoint, router_chain, router_freq, router_mapper, router_validator, router_retry, router_aggregator, router_auth, router_cache, router_cachehit, router_dump, router_schedule, router_monitor, router_transform, router_cleanse, router_ratelimit, router_log, router_delta, router_export]
